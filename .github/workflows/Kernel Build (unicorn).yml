@@ -28,17 +28,17 @@ on:
         required: true
       ANYKERNEL_URL:
         description: 'AnyKernel Url (leave blank if you dont want AnyKernel)'
-        default: 'https://github.com/itisFarzin/AnyKernel3'
+        default: 'https://github.com/Fauxly/AnyKernel3'
         required: false
       ANYKERNEL_BRANCH:
         description: 'AnyKernel Branch (defaults to codename)'
-        default: 'zahedan'
+        default: 'unicorn'
         required: false
 
 jobs:
   build:
     if: github.event.repository.owner.id == github.event.sender.id
-    runs-on: ubuntu-22.04
+    runs-on: ubuntu-latest
     permissions:
       contents: write
     steps:
@@ -108,7 +108,7 @@ jobs:
         export CROSS_COMPILE=aarch64-linux-gnu-
         export CROSS_COMPILE_ARM32=arm-linux-androideabi-
 
-        export KBUILD_BUILD_USER="itisFarzin"
+        export KBUILD_BUILD_USER="Fauxly"
         export KBUILD_BUILD_HOST="Github"
 
         make O=out CC=clang ${{ github.event.inputs.CODENAME }}_defconfig LLVM=1 LLVM_IAS=1 LD=ld.lld HOSTLD=ld.lld HOSTLDFLAGS=-fuse-ld=lld
