@@ -129,9 +129,7 @@ jobs:
         fi
         git clone --recursive --depth=1 ${{ github.event.inputs.ANYKERNEL_URL }} -b $anykernel_branch AnyKernel3
 
-        if [ -e "Image.gz-dtb" ]; then
-          cp -f Image.gz-dtb AnyKernel3
-        elif [ -e "Image.gz" ]; then
+        if [ -e "Image.gz" ]; then
           cp -f Image.gz AnyKernel3
         fi
 
@@ -147,12 +145,6 @@ jobs:
     - name: Check the output directory before uploading
       run: |
         ls -al ${{ steps.kernel.outputs.kernel-folder }}/out/arch/arm64/boot/
-
-    - uses: actions/upload-artifact@v4
-      if: ${{ success() }}
-      with:
-        name: Image.gz-dtb
-        path: ${{ steps.kernel.outputs.kernel-folder }}/out/arch/arm64/boot/Image.gz-dtb
 
     - uses: actions/upload-artifact@v4
       if: ${{ success() }}
