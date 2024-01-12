@@ -1,4 +1,4 @@
-name: Kernel Build (zahedan) - clang-r416183b
+name: Kernel Build (unicorn) - clang-r416183b
 
 on:
   workflow_dispatch:
@@ -16,15 +16,15 @@ on:
         default: true
       KERNEL_TREE:
         description: 'Kernel Tree'
-        default: 'https://github.com/itisFarzin/kernel_daria_mt6877'
+        default: 'https://github.com/Fauxly/android_kernel_xiaomi_sm8475'
         required: true
       KERNEL_TREE_BRANCH:
         description: 'Kernel Tree Branch'
         required: true
-        default: 'zahedan-ksu'
+        default: 'lts'
       CODENAME:
         description: 'Phone Codename'
-        default: 'k6877v1_64_k419'
+        default: 'unicorn'
         required: true
       ANYKERNEL_URL:
         description: 'AnyKernel Url (leave blank if you dont want AnyKernel)'
