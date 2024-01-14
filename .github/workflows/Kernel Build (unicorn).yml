@@ -6,14 +6,6 @@ on:
       BUILD_TITLE:
         description: 'Custom Build Title'
         required: false
-      SEND_NOTIFICATION:
-        description: 'Send Notification'
-        type: boolean
-        default: false
-      ENABLE_KERNELSU:
-        description: 'KernelSU'
-        type: boolean
-        default: false
       KERNEL_TREE:
         description: 'Kernel Tree'
         default: 'https://github.com/Fauxly/android_kernel_xiaomi_sm8475'
